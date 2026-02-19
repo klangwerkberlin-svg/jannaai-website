@@ -10,16 +10,17 @@
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0A0A0B;
-            --text: #FAFAFA;
-            --text-dim: #71717A;
-            --accent: #D4A853;
-            --font-display: 'Instrument Serif', Georgia, serif;
-            --font-body: 'DM Sans', sans-serif;
-            --font-mono: 'Geist Mono', monospace;
+            --bg: #FAFBFE;
+            --text: #0F1729;
+            --text-dim: #94A3B8;
+            --accent: #2563EB;
+            --accent-end: #7C3AED;
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -33,11 +34,23 @@
             text-align: center;
             -webkit-font-smoothing: antialiased;
         }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
         .wrap { max-width: 480px; padding: 2rem; }
         .code {
             font-family: var(--font-display);
             font-size: 6rem;
-            color: var(--accent);
+            font-weight: 500;
+            background: linear-gradient(135deg, var(--accent), var(--accent-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             line-height: 1;
             margin-bottom: 1rem;
         }
@@ -60,15 +73,16 @@
             font-weight: 500;
             letter-spacing: 0.06em;
             text-transform: uppercase;
-            color: var(--bg);
-            background: var(--accent);
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent), #3B82F6);
             padding: 0.75rem 1.75rem;
-            border-radius: 8px;
+            border-radius: 10px;
             text-decoration: none;
             transition: all 0.3s;
             display: inline-block;
+            box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
         }
-        a:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(212,168,83,0.3); }
+        a:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(37, 99, 235, 0.35); }
     </style>
 </head>
 <body>
